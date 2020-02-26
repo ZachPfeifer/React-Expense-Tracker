@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
-import uuid from 'uuid/v4'
+// @ts-ignore
+// import uuid from 'uuid/v4'
 
 //SECTION Dummy State
 const intitialState = {
@@ -19,19 +20,21 @@ export const GlobalContext = createContext(intitialState)
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, intitialState)
 
-  //SECTION Actions
+  //SECTION Actions (dispatch to the Reducer)
   function deleteTransaction(id) {
+    // @ts-ignore
     dispatch({
       type: 'DELETE_TRANSACTION',
       payload: id
-    })
+    });
   }
 
   function addTransaction(transaction) {
+    // @ts-ignore
     dispatch({
       type: 'ADD_TRANSACTION',
       payload: transaction
-    })
+    });
   }
 
   //SECTION Passing Children
