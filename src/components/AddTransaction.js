@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
+import uuid from 'uuid/v4'
 
 const AddTransaction = () => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState(0)
 
+  const { addTransaction } = useContext(GlobalContext)
+
+  const onSubmit = e => {
+    e.preventDefault()
+    const newTransaction = {
+      id: uuid(),
+      text,
+      //NOTE +amount turns string amount into number ammount
+      amount: +amount,
+    }
+
+    addTransaction(newTransaction)
+  }
+
+
   return (
     <>
       <h3>Add new Transaction</h3>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-control">
           <label htmlFor="text">Text</label>
           <input
@@ -23,7 +40,7 @@ const AddTransaction = () => {
           </label>
           <input
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(parseFloat(e.target.value))}
             type="number"
             placeholder="Enter Amount..." />
         </div>

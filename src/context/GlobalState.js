@@ -1,24 +1,48 @@
 import React, { createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
+import uuid from 'uuid/v4'
 
-//Dummy State
+//SECTION Dummy State
 const intitialState = {
   transactions: [
-    { id: 1, text: 'Flower', amount: -20 },
-    { id: 2, text: 'Salary', amount: 300 },
-    { id: 3, text: 'Book', amount: -10 },
-    { id: 4, text: 'Camera', amount: 1500 },
+    // { id: uuid(), text: 'Flower', amount: -20 },
+    // { id: uuid(), text: 'Salary', amount: 300 },
+    // { id: uuid(), text: 'Book', amount: -10 },
+    // { id: uuid(), text: 'Camera', amount: 1500 },
   ]
 }
 
-//Context
+//SECTION Context
 export const GlobalContext = createContext(intitialState)
 
-//Provider
+//SECTION Provider
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, intitialState)
 
-  return (<GlobalContext.Provider value={{ transactions: state.transactions }}>
-    {children}
-  </GlobalContext.Provider>)
+  //SECTION Actions
+  function deleteTransaction(id) {
+    dispatch({
+      type: 'DELETE_TRANSACTION',
+      payload: id
+    })
+  }
+
+  function addTransaction(transaction) {
+    dispatch({
+      type: 'ADD_TRANSACTION',
+      payload: transaction
+    })
+  }
+
+  //SECTION Passing Children
+  return (
+    <GlobalContext.Provider
+      value={{
+        transactions: state.transactions,
+        deleteTransaction,
+        addTransaction
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>)
 }
