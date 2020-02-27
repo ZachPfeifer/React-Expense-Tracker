@@ -1,55 +1,152 @@
-import React, { createContext, useReducer } from 'react'
-import AppReducer from './AppReducer'
-import axios from 'axios'
-//SECTION Dummy State
-const intitialState = {
+// import React, { createContext, useReducer } from 'react'
+// import AppReducer from './AppReducer'
+// import axios from 'axios'
+// //SECTION Dummy State
+// const intitialState = {
+//   transactions: [],
+//   error: null,
+//   loading: true
+// }
+
+// //SECTION Context
+// export const GlobalContext = createContext(intitialState)
+
+// //SECTION Provider
+// export const GlobalProvider = ({ children }) => {
+//   const [state, dispatch] = useReducer(AppReducer, intitialState)
+
+
+//   //SECTION API CAllS
+//   async function getTransactions() {
+//     try {
+//       const res = await axios.get('//zachs-global-server.herokuapp.com/api/v1/transactions/');
+//       console.log(res);
+
+//       // @ts-ignore
+//       dispatch({
+//         type: 'GET_TRANSACTIONS',
+//         payload: res.data.data,
+//       });
+//     } catch (error) {
+//       console.log(error);
+
+//       // @ts-ignore
+//       dispatch({
+//         type: 'TRANSACTIONS_ERROR',
+//         // payload: error.response.data.error,
+//       });
+//     }
+//   }
+
+//   //SECTION Actions (dispatch to the Reducer)
+//   async function deleteTransaction(id) {
+
+//     try {
+//       await axios.delete(`//zachs-global-server.herokuapp.com/api/v1/transactions/${id}`)
+//       // @ts-ignore
+//       dispatch({
+//         type: 'DELETE_TRANSACTION',
+//         payload: id
+//       });
+//     } catch (error) {
+//       // @ts-ignore
+//       dispatch({
+//         type: 'TRANSACTIONS_ERROR',
+//         // payload: error.response.data.error,
+//       });
+//     }
+//   }
+
+//   async function addTransaction(transaction) {
+//     const config = {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     }
+//     try {
+//       const res = await axios.post('//zachs-global-server.herokuapp.com/api/v1/transactions/', transaction, config)
+//       // @ts-ignore
+//       dispatch({
+//         type: 'ADD_TRANSACTION',
+//         payload: res.data.data
+//       });
+//     } catch (error) {
+//       // @ts-ignore
+//       dispatch({
+//         type: 'TRANSACTIONS_ERROR',
+//         // payload: error.response.data.error,
+//       });
+//     }
+//   }
+
+//   //SECTION Passing Children
+//   return (
+//     <GlobalContext.Provider
+//       value={{
+//         transactions: state.transactions,
+//         loading: state.loading,
+//         error: state.error,
+//         getTransactions,
+//         deleteTransaction,
+//         addTransaction
+//       }}
+//     >
+//       {children}
+//     </GlobalContext.Provider>)
+// }
+
+
+import React, { createContext, useReducer } from 'react';
+import AppReducer from './AppReducer';
+import axios from 'axios';
+
+// Initial state
+const initialState = {
   transactions: [],
   error: null,
   loading: true
 }
 
-//SECTION Context
-export const GlobalContext = createContext(intitialState)
+// Create context
+export const GlobalContext = createContext(initialState);
 
-//SECTION Provider
+// Provider component
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, intitialState)
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
-
-  //SECTION API CAllS
+  // Actions
   async function getTransactions() {
     try {
-      const res = await axios.get('//zachs-global-server.herokuapp.com/api/v1/transactions/');
+      const res = await axios.get('/api/v1/transactions');
 
       // @ts-ignore
       dispatch({
         type: 'GET_TRANSACTIONS',
-        payload: res.data.data,
+        payload: res.data.data
       });
-    } catch (error) {
+    } catch (err) {
       // @ts-ignore
       dispatch({
-        type: 'TRANSACTIONS_ERROR',
-        payload: error.response.data.error,
+        type: 'TRANSACTION_ERROR',
+        // payload: err.response.data.error
       });
     }
   }
 
-  //SECTION Actions (dispatch to the Reducer)
   async function deleteTransaction(id) {
-
     try {
-      await axios.delete(`//zachs-global-server.herokuapp.com/api/v1/transactions/${id}`)
+      await axios.delete(`/api/v1/transactions/${id}`);
+
       // @ts-ignore
       dispatch({
         type: 'DELETE_TRANSACTION',
         payload: id
       });
-    } catch (error) {
+    } catch (err) {
       // @ts-ignore
       dispatch({
-        type: 'TRANSACTIONS_ERROR',
-        payload: error.response.data.error,
+        type: 'TRANSACTION_ERROR',
+        // payload: err.response.data.error
       });
     }
   }
@@ -60,34 +157,32 @@ export const GlobalProvider = ({ children }) => {
         'Content-Type': 'application/json'
       }
     }
+
     try {
-      const res = await axios.post('//zachs-global-server.herokuapp.com/api/v1/transactions/', transaction, config)
+      const res = await axios.post('/api/v1/transactions', transaction, config);
+
       // @ts-ignore
       dispatch({
         type: 'ADD_TRANSACTION',
         payload: res.data.data
       });
-    } catch (error) {
+    } catch (err) {
       // @ts-ignore
       dispatch({
-        type: 'TRANSACTIONS_ERROR',
-        payload: error.response.data.error,
+        type: 'TRANSACTION_ERROR',
+        // payload: err.response.data.error
       });
     }
   }
 
-  //SECTION Passing Children
-  return (
-    <GlobalContext.Provider
-      value={{
-        transactions: state.transactions,
-        loading: state.loading,
-        error: state.error,
-        getTransactions,
-        deleteTransaction,
-        addTransaction
-      }}
-    >
-      {children}
-    </GlobalContext.Provider>)
+  return (<GlobalContext.Provider value={{
+    transactions: state.transactions,
+    error: state.error,
+    loading: state.loading,
+    getTransactions,
+    deleteTransaction,
+    addTransaction
+  }}>
+    {children}
+  </GlobalContext.Provider>);
 }
