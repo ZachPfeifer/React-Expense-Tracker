@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
-import uuid from 'uuid/v4'
 
 const AddTransaction = () => {
   const [text, setText] = useState('')
@@ -11,7 +10,6 @@ const AddTransaction = () => {
   const onSubmit = e => {
     e.preventDefault()
     const newTransaction = {
-      id: uuid(),
       text,
       //NOTE +amount turns string amount into number ammount
       amount: +amount,
