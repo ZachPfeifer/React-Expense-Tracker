@@ -20,7 +20,7 @@ export const GlobalProvider = ({ children }) => {
   async function getTransactions() {
     try {
       const res = await axios.get('/api/v1/transactions');
-      console.log(res);
+      // console.log(res);
 
       // @ts-ignore
       dispatch({
@@ -76,7 +76,7 @@ export const GlobalProvider = ({ children }) => {
       // @ts-ignore
       dispatch({
         type: 'TRANSACTION_ERROR',
-        payload: err.response.data.error
+        // payload: err.response.data.error
       });
     }
   }

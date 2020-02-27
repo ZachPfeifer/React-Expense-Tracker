@@ -20,31 +20,33 @@ const AddTransaction = () => {
 
 
   return (
-    <>
-      <h3>Add new Transaction</h3>
+    <div className="form-group">
+      <h3>Add New Transaction</h3>
       <form onSubmit={onSubmit}>
-        <div className="form-control">
-          <label htmlFor="text">Text</label>
+        <div className="Purchase">
+          <label htmlFor="text">Purchase Name:</label>
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
             type="text"
-            placeholder="Enter Text here..." />
+            placeholder="Enter Purchase here..."
+            required />
         </div>
-        <div className="form-control">
+        <div className="Amount">
           <label htmlFor="amount">
-            Amount <br />
-            (negative - expense, positive - income)
+            Amount: <br />
+            <small className="pl-3"> * - negative expense, + positive income*</small>
           </label>
           <input
             value={amount}
             onChange={(e) => setAmount(parseFloat(e.target.value))}
             type="number"
-            placeholder="Enter Amount..." />
+            placeholder="Enter +Amount or -Amount..."
+            required />
         </div>
         <button className="btn">Add Transaction</button>
       </form>
-    </>
+    </div>
   )
 }
 
