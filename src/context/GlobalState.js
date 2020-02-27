@@ -19,7 +19,7 @@ export const GlobalProvider = ({ children }) => {
   //SECTION API CAllS
   async function getTransactions() {
     try {
-      const res = await axios.get('https://zachs-global-server.herokuapp.com/api/v1/transactions/');
+      const res = await axios.get('/api/v1/transactions');
       console.log(res);
 
       // @ts-ignore
@@ -42,7 +42,7 @@ export const GlobalProvider = ({ children }) => {
   async function deleteTransaction(id) {
 
     try {
-      await axios.delete(`https://zachs-global-server.herokuapp.com/api/v1/transactions/${id}`)
+      await axios.delete(`/api/v1/transactions/${id}`)
       // @ts-ignore
       dispatch({
         type: 'DELETE_TRANSACTION',
@@ -63,18 +63,20 @@ export const GlobalProvider = ({ children }) => {
         'Content-Type': 'application/json'
       }
     }
+
     try {
-      const res = await axios.post('https://zachs-global-server.herokuapp.com/api/v1/transactions/', transaction, config)
+      const res = await axios.post('/api/v1/transactions', transaction, config);
+
       // @ts-ignore
       dispatch({
         type: 'ADD_TRANSACTION',
         payload: res.data.data
       });
-    } catch (error) {
+    } catch (err) {
       // @ts-ignore
       dispatch({
-        type: 'TRANSACTIONS_ERROR',
-        // payload: error.response.data.error,
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
       });
     }
   }

@@ -1,5 +1,6 @@
 {
   "homepage": " https://zachpfeifer.github.io/React-Expense-Tracker/",
+  "proxy": "https://zachs-global-server.herokuapp.com",
   "name": "expense-tracker",
   "version": "0.1.0",
   "private": true,
