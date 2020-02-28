@@ -20,7 +20,8 @@ const Charts = () => {
   }, [])
 
   return (
-    <div className="m-4">
+    <div className="m-5">
+      <h3 className="mx-auto">Transaction Charts</h3>
       {/*FIXME  Construction */}
       <Tabs>
         <TabList>
