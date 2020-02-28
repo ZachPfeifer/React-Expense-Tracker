@@ -7,29 +7,25 @@ import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 import { GlobalProvider } from "./context/GlobalState";
 import Chart from './components/Charts/Charts';
-import AllCharts from './components/Charts/AllCharts';
 
 
 
 function App() {
   return (
     <GlobalProvider>
-      <div style={{ position: "relative", width: 600, height: 550 }}>
-        <h1>Sample Chart</h1>
-        <AllCharts />
-      </div>
-      <Chart />
-      <div className="container">
+      {/* <div style={{ position: "relative", width: 800, height: 800 }}>
+      </div> */}
+      <div className="container-fluid">
         <div className="row">
-          <div id="transactions" className="float-left">
+          <div id="transactions">
             <Header />
             <Balance />
             <IncomeExpenses />
             <TransactionList />
             <AddTransaction />
           </div>
-          <div id="charts" className="float-right">
-
+          <div id="charts" style={{ position: "relative", width: 800, height: 800 }}>
+            <Chart />
           </div>
         </div>
       </div>

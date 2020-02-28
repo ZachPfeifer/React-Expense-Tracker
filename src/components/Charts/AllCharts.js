@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Line } from 'react-chartjs-2'
+import { Line, Bar, Pie } from 'react-chartjs-2'
 
 export default class AllCharts extends Component {
 
@@ -9,7 +9,7 @@ export default class AllCharts extends Component {
     super(props)
     this.state = {
       data: {
-        labels: [],
+        labels: ['Money Chart'],
         datasets: [
           {
             label: "Money Spent",
@@ -54,11 +54,27 @@ export default class AllCharts extends Component {
 
   render() {
     return (
-      <div>
-        <Line
-          options={{ responsive: true }}
-          data={this.getChartData}
-        />
+      <div className="row">
+        <div className="col-6">
+          <Bar
+            options={{ responsive: true }}
+            data={this.getChartData}
+          />
+        </div>
+        <div className="col-6">
+
+          <Line
+            options={{ responsive: true }}
+            data={this.getChartData}
+          />
+        </div>
+        <div className="col-6">
+          <Pie
+            options={{ responsive: true }}
+            data={this.getChartData}
+          />
+        </div>
+
       </div>
     )
   }

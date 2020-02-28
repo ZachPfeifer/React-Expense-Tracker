@@ -1,8 +1,8 @@
 import React from 'react'
-import { Bar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 
 
-export const BarChart = ({ text, amount }) => {
+export const PieChart = ({ text, amount }) => {
 
   // let amount = transaction.map(amount => transaction.amount)
   console.log(text, amount);
@@ -11,9 +11,9 @@ export const BarChart = ({ text, amount }) => {
     labels: [...text],
     datasets: [
       {
-        label: 'Transactions ',
-        backgroundColor: 'rgb(192,57,43)',
-        borderColor: 'rgba(153,0,0,0.6)',
+        label: 'Transactions',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
@@ -21,10 +21,10 @@ export const BarChart = ({ text, amount }) => {
       }
     ]
   };
-  // let data = api.get("line-data");
+
   return (
     <div>
-      <Bar
+      <Pie
         data={data}
         width={100}
         height={50}
@@ -36,9 +36,10 @@ export const BarChart = ({ text, amount }) => {
           },
           legend: {
             display: true,
+            // text: 'Dollar Value'
           },
           // maintainAspectRatio: false,
-          responsive: true,
+          responsive: true
         }}
       />
     </div>

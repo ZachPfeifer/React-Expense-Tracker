@@ -1,10 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalState';
 import { BarChart } from './BarChart';
+import { LineChart } from './LineChart';
+import { PieChart } from './PieChart';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
-
-const Chart = () => {
+const Charts = () => {
   const { transactions, getTransactions } = useContext(GlobalContext)
 
   let amounts = transactions.map(transaction => transaction.amount)
@@ -17,13 +20,29 @@ const Chart = () => {
   }, [])
 
   return (
-    <div>
-      <h1>Hello from charts</h1>
-      <BarChart text={text} amount={amounts} />
+    <div className="m-4">
+      {/*FIXME  Construction */}
+      <Tabs>
+        <TabList>
+          <Tab>Bar Chart</Tab>
+          <Tab>Pie Chart</Tab>
+          <Tab>Line Chart</Tab>
+        </TabList>
+        <TabPanel>
+          <BarChart text={text} amount={amounts} />
+        </TabPanel>
+        <TabPanel>
+          <PieChart text={text} amount={amounts} />
+        </TabPanel>
+        <TabPanel>
+          <LineChart text={text} amount={amounts} />
+        </TabPanel>
+      </Tabs>
+      {/* END OF CON */}
 
     </div>
   )
 }
 
-export default Chart
+export default Charts
 
