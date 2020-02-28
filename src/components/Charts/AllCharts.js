@@ -29,6 +29,7 @@ export default class AllCharts extends Component {
 
   setGradientColor = (canvas, color) => {
     const ctx = canvas.getContext('2d')
+    console.log(ctx);
     const gradient = ctx.createLinearGradient(0, 0, 600, 550)
     gradient.addColorStop(0, color)
     gradient.addColorStop(0.95, "rgba(133,122,144,0.5")
