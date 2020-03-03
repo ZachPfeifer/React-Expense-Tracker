@@ -2,18 +2,21 @@ import React from 'react'
 import { Bar } from "react-chartjs-2";
 
 
-export const BarChart = ({ text, amount }) => {
+export const BarChart = ({ text, amount, changeColor }) => {
 
   // let amount = transaction.map(amount => transaction.amount)
   console.log(text, amount);
+
+  //FIXME Construction (Figuring out how to change graph color based on amount value)
+
 
   const data = {
     labels: [...text],
     datasets: [
       {
         label: 'Transactions ',
-        backgroundColor: 'rgb(192,57,43)',
-        borderColor: 'rgba(153,0,0,0.6)',
+        backgroundColor: changeColor,
+        borderColor: ['rgba(255,99,132,0.4)'],
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',
         hoverBorderColor: 'rgba(255,99,132,1)',
@@ -21,6 +24,7 @@ export const BarChart = ({ text, amount }) => {
       }
     ]
   };
+
   // let data = api.get("line-data");
   return (
     <div>
@@ -37,7 +41,7 @@ export const BarChart = ({ text, amount }) => {
           legend: {
             display: true,
           },
-          // maintainAspectRatio: false,
+          maintainAspectRatio: true,
           responsive: true,
         }}
       />

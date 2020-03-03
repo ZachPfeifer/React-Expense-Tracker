@@ -2,7 +2,7 @@ import React from 'react'
 import { Pie } from "react-chartjs-2";
 
 
-export const PieChart = ({ text, amount }) => {
+export const PieChart = ({ text, amount, changeColor }) => {
 
   // let amount = transaction.map(amount => transaction.amount)
   console.log(text, amount);
@@ -12,7 +12,7 @@ export const PieChart = ({ text, amount }) => {
     datasets: [
       {
         label: 'Transactions',
-        backgroundColor: 'rgba(255,99,132,0.2)',
+        backgroundColor: ['rgba(255,99,132,0.2)'],
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(255,99,132,0.4)',

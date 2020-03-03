@@ -8,11 +8,24 @@ import 'react-tabs/style/react-tabs.css';
 
 
 const Charts = () => {
+
+  //SECTION Pulls data from api (Amount/Text)
   const { transactions, getTransactions } = useContext(GlobalContext)
 
+  //SECTION Maps out Amounts
   let amounts = transactions.map(transaction => transaction.amount)
+
+  //SECTION Maps outt Text
   let text = transactions.map(transaction => transaction.text)
   console.log(transactions, text, amounts);
+
+  //SECTION Changes Colors For Charts
+  const changeColor = (context) => {
+    var index = context.dataIndex;
+    var value = context.dataset.data[index];
+    return value < 0 ? 'red' :  // changes negative values in red
+      'green';// else changes values(positive) in red 
+  }
 
   useEffect(() => {
     getTransactions()
@@ -22,24 +35,22 @@ const Charts = () => {
   return (
     <div className="m-5">
       <h3 className="mx-auto">Transaction Charts</h3>
-      {/*FIXME  Construction */}
       <Tabs>
         <TabList>
+          <Tab>Line Chart</Tab>
           <Tab>Bar Chart</Tab>
           <Tab>Pie Chart</Tab>
-          <Tab>Line Chart</Tab>
         </TabList>
         <TabPanel>
-          <BarChart text={text} amount={amounts} />
+          <LineChart text={text} amount={amounts} changeColor={changeColor} />
         </TabPanel>
         <TabPanel>
-          <PieChart text={text} amount={amounts} />
+          <BarChart text={text} amount={amounts} changeColor={changeColor} />
         </TabPanel>
         <TabPanel>
-          <LineChart text={text} amount={amounts} />
+          <PieChart text={text} amount={amounts} changeColor={changeColor} />
         </TabPanel>
       </Tabs>
-      {/* END OF CON */}
 
     </div>
   )
