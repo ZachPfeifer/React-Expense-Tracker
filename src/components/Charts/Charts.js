@@ -1,3 +1,6 @@
+//NOTE https://www.chartjs.org/docs/latest/charts/line.html?h=bordercolor
+
+
 import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalState';
 import { BarChart } from './BarChart';
