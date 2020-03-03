@@ -1,5 +1,6 @@
 import React from 'react'
-import { Pie } from "react-chartjs-2";
+
+import { Doughnut } from "react-chartjs-2";
 
 
 export const PieChart = ({ text, amount, changeColor }) => {
@@ -11,23 +12,23 @@ export const PieChart = ({ text, amount, changeColor }) => {
     labels: [...text],
     datasets: [
       {
-        label: 'Transactions',
-        backgroundColor: ['rgba(255,99,132,0.2)'],
-        borderColor: 'rgba(255,99,132,1)',
+        label: 'Transactions ',
+        backgroundColor: changeColor,
+        borderColor: 'rgba(191, 148, 86, .2)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [...amount]
+        hoverBackgroundColor: 'rgba(191, 148, 86, .4)',
+        hoverBorderColor: 'rgba(191, 148, 86, 1)',
+        data: amount
       }
     ]
   };
 
   return (
     <div>
-      <Pie
+      <Doughnut
         data={data}
-        width={100}
-        height={50}
+        width={1000}
+        height={600}
         options={{
           title: {
             display: true,
@@ -36,10 +37,17 @@ export const PieChart = ({ text, amount, changeColor }) => {
           },
           legend: {
             display: true,
-            // text: 'Dollar Value'
+            position: 'right'
           },
-          // maintainAspectRatio: false,
-          responsive: true
+          responsive: true,
+          maintainAspectRatio: false,
+          // scales: {
+          //   yAxes: [{
+          //     ticks: {
+          //       beginAtZero: true
+          //     }
+          //   }]
+          // }
         }}
       />
     </div>

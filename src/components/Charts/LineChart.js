@@ -15,15 +15,15 @@ export const LineChart = ({ text, amount, changeColor }) => {
     datasets: [
       {
         label: 'Transactions',
-        backgroundColor: 'rgba(156, 136, 255, .2 )',
-        borderColor: 'rgba(156, 136, 255, 1)',
+        backgroundColor: 'rgba(191, 148, 86, .2)',
+        borderColor: 'rgba(191, 148, 86, 1)',
         borderWidth: 2,
         pointBackgroundColor: changeColor,
         pointRadius: 6,
         // pointHitRadius: 10,
         // pointBorderWidth: 6,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBackgroundColor: 'rgba(204, 68, 51, .4)',
+        hoverBorderColor: 'rgba(204, 68, 51, .4)',
         data: amount
       }
     ]
@@ -43,8 +43,10 @@ export const LineChart = ({ text, amount, changeColor }) => {
             fontSize: 25
           },
           responsive: true,
-          legend: { display: true },
-          maintainAspectRatio: true,
+          legend: {
+            display: true, align: 'center', position: 'top'
+          },
+          maintainAspectRatio: false,
           responsiveAnimationDuration: 0,
           scales: {
             yAxes: [{

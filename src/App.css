@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: var(--offWhite);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ h4 {
 :root {
   --primaryColor: #555533;
   --mainWhite: #fff;
-  --offWhite: #f7f7f7;
+  --offWhite: #FFFFE5;
   --mainBlack: #222;
   --mainGreen: #66aa33;
   --darkGreen: #668855;
@@ -161,8 +161,37 @@ input[type='text'], input[type='number'] {
   opacity: 1;
 }
 
-/* @media (max-width: 320px) {
+#charts {
+  position: relative;
+  width: 50rem;
+  height: 20rem;
+}
+
+.chart-fluid {
+  width: 50rem;
+  height: 40rem;
+  overflow: scroll;
+  overflow-y: hidden;
+  /* Hide vertical scrollbar */
+  overflow-x: hidden;
+  /* Hide horizontal scrollbar */
+}
+
+@media (max-width: 768px) {
+  #charts {
+    width: 29rem;
+    height: 10rem;
+  }
+  .chart-fluid {
+    width: 29rem;
+    height: 40rem;
+    overflow: scroll;
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+  }
   .container {
     width: 300px;
   }
-} */
+}

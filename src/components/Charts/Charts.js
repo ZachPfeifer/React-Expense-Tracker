@@ -6,6 +6,7 @@ import { GlobalContext } from '../../context/GlobalState';
 import { BarChart } from './BarChart';
 import { LineChart } from './LineChart';
 import { PieChart } from './PieChart';
+import { RadarChart } from './RadarChart';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -26,8 +27,8 @@ const Charts = () => {
   const changeColor = (context) => {
     var index = context.dataIndex;
     var value = context.dataset.data[index];
-    return value < 0 ? 'red' :  // changes negative values in red
-      'green';// else changes values(positive) in red 
+    return value < 0 ? 'rgba(204, 68, 51, 1)' :  // changes negative values in red
+      'rgba(102, 170, 51, 1)';// else changes values(positive) in red 
   }
 
   useEffect(() => {
@@ -42,16 +43,33 @@ const Charts = () => {
         <TabList>
           <Tab>Line Chart</Tab>
           <Tab>Bar Chart</Tab>
-          <Tab>Pie Chart</Tab>
+          <Tab >Pie Chart</Tab>
+          <Tab >Radar Chart</Tab>
         </TabList>
         <TabPanel>
-          <LineChart text={text} amount={amounts} changeColor={changeColor} />
+          <div className="chart-fluid">
+            <LineChart text={text} amount={amounts} changeColor={changeColor} />
+          </div>
         </TabPanel>
         <TabPanel>
-          <BarChart text={text} amount={amounts} changeColor={changeColor} />
+          <div className="chart-fluid">
+
+            <BarChart text={text} amount={amounts} changeColor={changeColor} />
+          </div>
+
         </TabPanel>
         <TabPanel>
-          <PieChart text={text} amount={amounts} changeColor={changeColor} />
+          <div className="chart-fluid">
+
+            <PieChart text={text} amount={amounts} changeColor={changeColor} />
+          </div>
+
+        </TabPanel>
+        <TabPanel>
+          <div className="chart-fluid">
+            <RadarChart text={text} amount={amounts} changeColor={changeColor} />
+          </div>
+
         </TabPanel>
       </Tabs>
 

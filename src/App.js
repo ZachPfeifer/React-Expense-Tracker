@@ -17,14 +17,14 @@ function App() {
       </div> */}
       <div className="container-fluid">
         <div className="row">
-          <div id="transactions">
+          <div id="transactions" className="mx-auto">
             <Header />
             <Balance />
             <IncomeExpenses />
             <TransactionList />
             <AddTransaction />
           </div>
-          <div id="charts" style={{ position: "relative", width: 800, height: 800 }}>
+          <div id="charts" className="mx-auto "  >
             <Chart />
           </div>
         </div>

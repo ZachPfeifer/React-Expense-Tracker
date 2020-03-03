@@ -1,37 +1,35 @@
 import React from 'react'
+import numeral from 'numeral'
 import { Bar } from "react-chartjs-2";
+import { numberWithCommas } from '../Utility';
 
 
 export const BarChart = ({ text, amount, changeColor }) => {
 
-  // let amount = transaction.map(amount => transaction.amount)
   console.log(text, amount);
 
-  //FIXME Construction (Figuring out how to change graph color based on amount value)
-
-
   const data = {
-    labels: [...text],
+    labels: text,
     datasets: [
       {
         label: 'Transactions ',
         backgroundColor: changeColor,
-        borderColor: ['rgba(255,99,132,0.4)'],
+        borderColor: 'rgba(191, 148, 86, .2)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-        data: [...amount]
+        hoverBackgroundColor: 'rgba(191, 148, 86, .4)',
+        hoverBorderColor: 'rgba(191, 148, 86, 1)',
+        data: amount
       }
     ]
   };
 
   // let data = api.get("line-data");
   return (
-    <div>
+    <div id="charts">
       <Bar
         data={data}
-        width={100}
-        height={50}
+        width={1000}
+        height={500}
         options={{
           title: {
             display: true,
@@ -43,6 +41,29 @@ export const BarChart = ({ text, amount, changeColor }) => {
           },
           maintainAspectRatio: true,
           responsive: true,
+          scales: {
+            yAxes: [{
+              ticks: {
+                callback: function (value, index, values) {
+                  // add comma as thousand separator
+                  return numberWithCommas(value)
+                },
+              }
+            }]
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                var label = data.datasets[tooltipItem.datasetIndex].label || ''
+
+                if (label) {
+                  label += ': '
+                }
+                label += numeral(tooltipItem.yLabel).format('0,0')
+                return label
+              },
+            },
+          },
         }}
       />
     </div>
