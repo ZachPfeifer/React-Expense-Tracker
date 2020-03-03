@@ -1,7 +1,7 @@
 import React from 'react'
 import numeral from 'numeral'
 import { Bar } from "react-chartjs-2";
-import { numberWithCommas } from '../Utility';
+import { numberWithCommas } from '../Utility/Utility';
 
 
 export const BarChart = ({ text, amount, changeColor }) => {

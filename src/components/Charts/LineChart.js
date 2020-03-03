@@ -2,7 +2,7 @@ import React from 'react'
 import { Line } from "react-chartjs-2";
 // import "chartjs-plugin-lineheight-annotation";
 import numeral from 'numeral'
-import { numberWithCommas } from '../Utility';
+import { numberWithCommas } from '../Utility/Utility';
 
 
 
