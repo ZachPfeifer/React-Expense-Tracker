@@ -55,8 +55,25 @@ h4 {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+/* SECTION Containers */
+
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .wrapper {
-  margin-top: 10rem;
+  margin-top: 17rem;
+}
+
+@media(max-width: 768px) {
+  .wrapper {
+    margin-top: 35rem;
+  }
 }
 
 .inc-exp-container {
@@ -76,6 +93,10 @@ h4 {
 .inc-exp-container>div:first-of-type {
   border-right: 1px solid var(--mainWhite);
 }
+
+/* END OF CONTAINER */
+
+/* SECTION Transactions */
 
 .money {
   font-size: 20px;
@@ -167,203 +188,169 @@ input[type='text'], input[type='number'] {
   opacity: 1;
 }
 
-/* SECTION  NavBar */
+/* END OF TRANSACTIONS */
 
-/* nav {
-  width: 100%!important;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 8vh;
-  background-color: var(--primaryColor);
-  font-family: 'Lato', sans-serif;
+/* SECTION Toolbar */
+
+.spacer {
+  flex: 1;
 }
 
-.logo {
-  color: var(--mainWhite);
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 20px;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  width: 40%;
-}
-
-.nav-links li {
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--mainWhite);
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.burger {
-  display: none;
-}
-
-.burger div {
-  width: 25px;
-  height: 3px;
-  margin: 5px;
-  background-color: var(--mainWhite);
-  transition: all 0.3s ease;
-}
-
-.nav-active {
-  transform: translateX(0%);
-}
-
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.toggle .line2 {
-  opacity: 0;
-}
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, 6px);
-}
-
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-  .nav-links {
-    position: absolute;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
-    background-color: var(--primaryColor);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    transform: translateX(100%);
-    transition: var(--mainTransition);
-  }
-  .nav-links li {
-    opacity: 0;
-  }
-  .burger {
-    display: block;
-    cursor: pointer;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .nav-links {
-    width: 50%;
-  }
-}
-
-*/
-
-/* SECTION NavBar2 */
-
-.navbar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100% !important;
-  padding: .5rem 0rem 1rem 4rem !important;
-  background: var(--primaryColor);
-  z-index: 1;
+  background-color: var(--primaryColor);
+  height: 56px;
+  z-index: 99;
 }
 
-.logo {
-  /* position: absolute; */
-  left: 5%;
-  top: 53%;
-  color: var(--mainWhite);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 15px;
+.toolbar__navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
 }
 
-.nav-header {
-  display: flex !important;
-  justify-content: space-between !important;
+.toolbar__logo {
+  margin-left: 1.5rem;
 }
 
-.nav-btn {
-  background: transparent !important;
-  border: none !important;
-  cursor: pointer !important;
-  outline: none !important;
-}
-
-.nav-links {
-  height: 0;
-  overflow: hidden!important;
-  transition: var(--mainTransition)!important;
-  list-style-type: none!important;
-}
-
-.nav-links a {
-  display: block;
+.toolbar__logo a {
+  color: var(--offWhite);
   text-decoration: none;
-  padding: 1rem 0;
-  margin-right: 3rem;
-  color: var(--mainWhite);
-  transition: var(--mainTransition);
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: var(--mainSpacing);
+  font-size: 1.5rem;
 }
 
-.nav-links li:hover {
+.toolbar__navigation-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.toolbar__navigation-items li {
+  padding: 0 .5rem;
+}
+
+.toolbar__navigation-items a {
+  color: var(--offWhite);
+  text-decoration: none;
+}
+
+.toolbar__navigation-items a:hover, .toolbar__navigation-items a:active {
+  color: var(--darkGold);
+  text-decoration: none;
+}
+
+/* STUB ToggleButton */
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 35px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__line {
+  width: 30px;
+  height: 3px;
+  background-color: var(--offWhite);
+}
+
+@media(max-width: 768px) {
+  .toolbar__navigation-items {
+    display: none;
+  }
+}
+
+@media(min-width: 769px) {
+  .toolbar__toggle-button {
+    display: none;
+  }
+  .toolbar__logo {
+    margin-left: 0;
+  }
+}
+
+/* END OF TOGGLEBUTOON */
+
+/*STUB  sideDrawer */
+
+.side-drawer {
+  height: 100%;
+  background: var(--mainWhite);
+  box-shadow: 2px 0 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.side-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.side-drawer li {
+  margin: 0.5rem 2rem;
+}
+
+.side-drawer a {
+  color: var(--mainGrey);
+  text-decoration: none;
+}
+
+.side-drawer a:hover, .side-drawer a:active {
   color: var(--darkGold);
 }
 
-.show-nav {
-  height: 6rem;
-}
-
-@media screen and (min-width: 768px) {
-  .logo {
-    color: var(--mainWhite);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 15px;
-  }
-  .nav-btn {
+@media(min-width: 769px) {
+  .side-drawer {
     display: none;
   }
-  .nav-center {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-  }
-  .nav-links {
-    height: auto;
-    display: flex;
-    margin-left: 4rem;
-  }
-  .nav-links a {
-    margin: 0 1rem;
-    padding: 3rem 0rem 0rem 0rem;
-  }
 }
+
+/* END OF SIDEDRAWER */
+
+/* END OF TOOLBAR */
+
+/* SECTION Backdrop */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+/* END OF BACKDROP */
 
 /* SECTION Charts */
 
