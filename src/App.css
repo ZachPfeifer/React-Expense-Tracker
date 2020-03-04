@@ -70,6 +70,14 @@ h4 {
   margin-top: 28rem;
 }
 
+.login-wrapper {
+  margin-top: -20rem;
+}
+
+.confirm-wrapper {
+  margin-top: 20rem;
+}
+
 @media(max-width: 766px) {
   .wrapper {
     margin-top: 50rem;
@@ -128,6 +136,7 @@ input[type='text'], input[type='number'] {
 
 .btn {
   cursor: pointer;
+  text-decoration: none;
   background-color: var(--darkGold);
   box-shadow: var(--box-shadow);
   color: var(--mainWhite);
@@ -137,6 +146,11 @@ input[type='text'], input[type='number'] {
   margin: 10px 0 30px;
   padding: 10px;
   width: 100%;
+}
+
+.btn a:visited, a:link {
+  text-decoration: none;
+  color: var(--mainWhite);
 }
 
 .btn:focus, .delete-btn:focus {
@@ -444,3 +458,53 @@ input[type='text'], input[type='number'] {
 }
 
 /* END OF CHART */
+
+/* SECTION Login */
+
+.btn-continue {
+  position: relative;
+  cursor: pointer;
+  /* height: 40px; */
+  background-color: var(--darkGold);
+  box-shadow: var(--box-shadow);
+  color: var(--mainWhite);
+  border: 0;
+  border-radius: 3px;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  font-weight: 500;
+  user-select: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+}
+
+.btn-back {
+  position: relative;
+  cursor: pointer;
+  background-color: var(--mainGrey);
+  box-shadow: var(--box-shadow);
+  color: var(--mainWhite);
+  border: 0;
+  border-radius: 3px;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  font-weight: 500;
+  user-select: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 10px 0 30px 30px;
+  padding: 10px;
+}
+
+/*
+display: block;
+width: 100%; 
+*/
+
+/* END OF LOGIN */

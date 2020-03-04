@@ -1,8 +1,12 @@
 import React from 'react'
+import UserForm from '../components/Login/UserForm'
 
 const Home = () => {
   return (
-    <h1>login</h1>
+    <div className="login-wrapper">
+      <h3>Account Registery</h3>
+      <UserForm />
+    </div>
   );
 }
 
