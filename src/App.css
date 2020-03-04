@@ -67,12 +67,12 @@ h4 {
 }
 
 .wrapper {
-  margin-top: 17rem;
+  margin-top: 28rem;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 766px) {
   .wrapper {
-    margin-top: 35rem;
+    margin-top: 50rem;
   }
 }
 
@@ -144,9 +144,42 @@ input[type='text'], input[type='number'] {
 }
 
 .list {
+  height: 30rem;
+  overflow: scroll;
+  direction: rtl;
+  scrollbar-width: none;
+  /* overflow-y: hidden; */
+  /* Hide vertical scrollbar */
+  overflow-x: hidden;
   list-style-type: none;
   padding: 0;
   margin-bottom: 40px;
+}
+
+/* width */
+
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+
+.list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--primaryColor);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: var(--primaryColor);
 }
 
 .list li {
@@ -370,23 +403,44 @@ input[type='text'], input[type='number'] {
   /* Hide horizontal scrollbar */
 }
 
-/* SECTION Responsive */
+/* STUB  Responsive */
 
 @media (max-width: 768px) {
   #charts {
-    width: 29rem;
+    width: 23rem;
     height: 10rem;
   }
   .chart-fluid {
-    width: 29rem;
-    height: 40rem;
+    /* width: 48rem; */
+    width: 23.438rem;
+    height: 48rem;
     overflow: scroll;
-    overflow-y: hidden;
+    overflow-y: scroll;
     /* Hide vertical scrollbar */
-    overflow-x: hidden;
+    overflow-x: scroll;
     /* Hide horizontal scrollbar */
   }
-  .container {
+  /* .container {
     width: 300px;
+  } */
+  .chart-fluid::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  .chart-fluid::-webkit-scrollbar:vertical {
+    width: 12px;
+  }
+  .chart-fluid::-webkit-scrollbar:horizontal {
+    height: 12px;
+  }
+  .chart-fluid::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+  .chart-fluid::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
   }
 }
+
+/* END OF CHART */
