@@ -25,11 +25,11 @@ export const BarChart = ({ text, amount, changeColor }) => {
 
   // let data = api.get("line-data");
   return (
-    <div id="charts">
+    <div id="bar">
       <Bar
         data={data}
         width={1000}
-        height={500}
+        height={800}
         options={{
           title: {
             display: true,
