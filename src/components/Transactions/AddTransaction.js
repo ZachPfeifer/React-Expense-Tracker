@@ -2,11 +2,12 @@ import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 
 const AddTransaction = () => {
+  //SECTION Temp Hooks(useState)
   const [text, setText] = useState('')
   const [amount, setAmount] = useState(0)
-
+  //SECTION Pulls + transaction from Context
   const { addTransaction } = useContext(GlobalContext)
-
+  //SECTION Handles
   const onSubmit = e => {
     e.preventDefault()
     const newTransaction = {
@@ -18,6 +19,15 @@ const AddTransaction = () => {
     addTransaction(newTransaction)
   }
 
+  const increment = () => {
+    setAmount(prevState => prevState + 1);
+    console.log(`Hello from incremnet ${setAmount}`);
+  }
+
+  function decrement() {
+    setAmount(prevState => prevState - 1);
+
+  }
 
   return (
     <div className="form-group">
@@ -37,12 +47,15 @@ const AddTransaction = () => {
             Amount: <br />
             <small className="pl-3"> * - negative expense, + positive income*</small>
           </label>
-          <input
-            value={amount}
-            onChange={(e) => setAmount(parseFloat(e.target.value))}
-            type="number"
-            placeholder="Enter +Amount or -Amount..."
-            required />
+          <span className="number-wrapper">
+            <input
+              value={amount}
+              onChange={(e) => setAmount(parseFloat(e.target.value))}
+              type="number"
+              min="-1000000"
+              placeholder="Enter +Amount or -Amount..."
+              required />
+          </span>
         </div>
         <button className="btn">Add Transaction</button>
       </form>

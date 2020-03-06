@@ -6,10 +6,10 @@ import { Doughnut } from "react-chartjs-2";
 export const PieChart = ({ text, amount, changeColor }) => {
 
   // let amount = transaction.map(amount => transaction.amount)
-  console.log(text, amount);
+  // console.log(text, amount);
 
   const data = {
-    labels: [...text],
+    labels: text,
     datasets: [
       {
         label: 'Transactions ',

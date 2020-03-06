@@ -19,9 +19,9 @@ const Charts = () => {
   //SECTION Maps out Amounts
   let amounts = transactions.map(transaction => transaction.amount)
 
-  //SECTION Maps outt Text
+  //SECTION Maps out Text
   let text = transactions.map(transaction => transaction.text)
-  console.log(transactions, text, amounts);
+  // console.log(transactions, text, amounts);
 
   //SECTION Changes Colors For Charts
   const changeColor = (context) => {

@@ -6,7 +6,7 @@ import { numberWithCommas } from '../Utility/Utility';
 
 export const BarChart = ({ text, amount, changeColor }) => {
 
-  console.log(text, amount);
+  // console.log(text, amount);
 
   const data = {
     labels: text,
