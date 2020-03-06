@@ -3,6 +3,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import TextField from 'material-ui/TextField'
 
 
+
+
+
+
 export class FormUserDetails extends Component {
 
   continue = e => {
@@ -21,6 +25,7 @@ export class FormUserDetails extends Component {
             floatingLabelText="First Name"
             onChange={handleChange('firstName')}
             defaultValue={values.firstName}
+
           />
           <br />
           <TextField

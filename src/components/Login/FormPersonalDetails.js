@@ -57,27 +57,4 @@ export class FormPersonalDetails extends Component {
   }
 }
 
-//FIXME Trash
-// const styles = {
-//   button: {
-//     margin: 15,
-
-//     cursor: 'pointer',
-//     backgroundColor: '#bf9456!important',
-//     color: '#fff',
-//     border: 20,
-//     display: 'block',
-//     fontSize: 16
-//   }
-// }
-// cursor: pointer;
-// background - color: var(--darkGold);
-// box - shadow: var(--box - shadow);
-// color: var(--mainWhite);
-// border: 0;
-// display: block;
-// font - size: 16px;
-// margin: 10px 0 30px;
-// padding: 10px;
-// width: 100 %;
 export default FormPersonalDetails

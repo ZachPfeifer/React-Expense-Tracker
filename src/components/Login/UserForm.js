@@ -4,7 +4,7 @@ import FormPersonalDetails from './FormPersonalDetails'
 import Confirm from './Confirm'
 import Success from './Success'
 import Login from '../../pages/Login'
-
+import Demo from './Demo'
 
 export class UserForm extends Component {
 
@@ -51,6 +51,12 @@ export class UserForm extends Component {
             handleChange={this.handleChange}
             values={values}
           />
+          //FIXME Custom TextField(trash)
+          // &&
+          // <Demo
+          //   nextStep={this.nextStep}
+          //   handleChange={this.handleChange}
+          //   values={values} />
         )
       case 2:
         return (

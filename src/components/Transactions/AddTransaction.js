@@ -19,15 +19,6 @@ const AddTransaction = () => {
     addTransaction(newTransaction)
   }
 
-  const increment = () => {
-    setAmount(prevState => prevState + 1);
-    console.log(`Hello from incremnet ${setAmount}`);
-  }
-
-  function decrement() {
-    setAmount(prevState => prevState - 1);
-
-  }
 
   return (
     <div className="form-group">
