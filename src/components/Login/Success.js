@@ -23,7 +23,7 @@ export class Success extends Component {
         <React.Fragment>
           <h1>Thank You for Registering</h1>
           <p>You now have an Personal Account With Transaction Tracker</p>
-          <button className="btn"><Link to="/React-Expense-Tracker/">Home</Link></button>
+          <button className="btn"><Link to="/React-Expense-Tracker/home">Home</Link></button>
         </React.Fragment>
       </MuiThemeProvider>
     )

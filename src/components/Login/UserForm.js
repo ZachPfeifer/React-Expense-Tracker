@@ -3,8 +3,8 @@ import FormUserDetails from './FormUserDetails'
 import FormPersonalDetails from './FormPersonalDetails'
 import Confirm from './Confirm'
 import Success from './Success'
-import Login from '../../pages/Login'
-import Demo from './Demo'
+import LoginFrom from './LoginForm'
+// import Demo from './Demo'
 
 export class UserForm extends Component {
 
@@ -13,6 +13,7 @@ export class UserForm extends Component {
     firstName: "",
     lastName: "",
     email: "",
+    password: "",
     occupation: "",
     city: "",
     bio: "",
@@ -40,8 +41,8 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state
-    const { firstName, lastName, email, occupation, city, bio } = this.state
-    const values = { firstName, lastName, email, occupation, city, bio }
+    const { firstName, lastName, email,password, occupation, city, bio } = this.state
+    const values = { firstName, lastName, email, password, occupation, city, bio }
 
     switch (step) {
       case 1:
@@ -77,8 +78,21 @@ export class UserForm extends Component {
         )
       case 4:
         return <Success />
+      case 5:
+        return (
+          <LoginFrom
+            handleChange={this.handleChange}
+            values={values}
+          />
+        )
       default:
-        return <Login />
+        return (
+        <LoginFrom 
+        handleChange={this.handleChange}
+        email={values.email}
+        password={values.password}
+        />
+        )
     }
   }
 }

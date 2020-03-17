@@ -12,7 +12,7 @@ const sideDrawer = ({ show }) => {
     <nav className={drawerClasses}>
       <ul>
         <li><Link to="/React-Expense-Tracker/">Home</Link></li>
-        <li><Link to="/React-Expense-Tracker/login">Login</Link></li>
+        <li><Link to="/React-Expense-Tracker/account">Login</Link></li>
       </ul>
     </nav>
   );

@@ -42,6 +42,18 @@ export class FormUserDetails extends Component {
             defaultValue={values.email}
           />
           <br />
+          <TextField
+            id="filled-password-input"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            variant="filled"
+            hintText="Enter Your Password"
+            floatingLabelText="Password"
+            onChange={handleChange('password')}
+            defaultValue={values.password}
+          />
+          <br />
           <button
             className="btn-continue"
             onClick={this.continue}>
