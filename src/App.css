@@ -70,9 +70,9 @@ h4 {
   margin-top: 35rem;
 }
 
-.login-wrapper {
-  /* margin-top: -20rem; */
-}
+/* .login-wrapper {
+  margin-top: -20rem;
+} */
 
 .confirm-wrapper {
   margin-top: 25rem;
@@ -106,6 +106,14 @@ h4 {
 
 .inc-exp-container>div:first-of-type {
   border-right: 1px solid var(--mainWhite);
+}
+
+.dialog-container{
+  position: absolute;
+  width: 10rem;
+  top: 100%;
+  left: 90%;
+  background-color: var(--mainGrey);
 }
 
 /* END OF CONTAINER */
@@ -394,7 +402,7 @@ input[type=number]:hover::-webkit-inner-spin-button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 70%;
+  width: 20rem;
   max-width: 400px;
   z-index: 200;
   transform: translateX(-100%);
@@ -418,8 +426,8 @@ input[type=number]:hover::-webkit-inner-spin-button {
   background-color: var(--darkGold);
 }
 .drawer__profile{
-  margin: -22.5rem 3rem 3rem 3rem!important;
-  
+  margin: -16.5rem 5rem 3rem 3rem;
+  text-align: center
 }
 
 .side-drawer ul {
@@ -454,6 +462,19 @@ input[type=number]:hover::-webkit-inner-spin-button {
 }
 
 /* END OF SIDEDRAWER */
+
+/*SECTION Account dialog */
+.dialog__close-button {
+float: right;
+}
+.dialog-container img{
+  width: 4rem;
+  border-radius: 999em;
+  line-height: 0;
+  border: 2px solid var(--primaryColor);
+  background-color: var(--darkGold);
+}
+/* END OF  ACCOUNT DIALOG */
 
 /* END OF TOOLBAR */
 

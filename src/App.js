@@ -5,9 +5,9 @@ import { GlobalProvider } from "./context/GlobalState";
 import UserProvider from './context/UserState';
 import Home from './pages/Home';
 import Account from './pages/Account'; 
+import AccountDetails from './components/Nav/AccountDetails'; 
 import Login from './components/Login/LoginForm'; 
 import NavContainer from './components/Nav/NavContainer';
-
 
 
 
@@ -21,6 +21,7 @@ function App() {
           <Switch>
             <Route exact path="/React-Expense-Tracker/" component={Home} />
             <Route exact path="/React-Expense-Tracker/account" component={Account} />
+            <Route exact path="/React-Expense-Tracker/account/details" component={AccountDetails} />
             <Route exact path="/React-Expense-Tracker/login" component={Login} />
           </Switch>
         </div>

@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import DrawerToggleButton from './DrawerToggleButton'
 import withUser from '../../components/Login/withUser'
-import Logo from '../../images/logo.png'
-
+import Logo from '../../assets/images/Transaction-Tracker-Icon.png'
+import {MdAccountCircle  } from "react-icons/md";
+import { FaHome } from 'react-icons/fa';
+// import { GoChevronDown } from "react-icons/go";
+import AccountDialogContainer from './AccountDialogContainer';
 
 const ToolBar = (props) => {
 
@@ -18,10 +21,9 @@ const ToolBar = (props) => {
   if(requireAuth && !isLoggedIn){
     return null
   }
-
-
-  return (
-    <header className="toolbar">
+  else{
+    return (
+      <header className="toolbar">
       <nav className="toolbar__navigation">
         <div className="toolbar__toggle-button">
           <DrawerToggleButton click={drawerClickHandler} />
@@ -31,13 +33,21 @@ const ToolBar = (props) => {
         <div className="toolbar__navigation-items">
           <ul>
            <li className="d-flex justify-content-center">{firstName}</li> 
-            <li><Link to="/React-Expense-Tracker/">Home</Link></li>
-            <li><Link to="/React-Expense-Tracker/account">Login/Register</Link></li>
+            <li><Link to="/React-Expense-Tracker/"><FaHome /> Home</Link></li>
+            <li><Link to="/React-Expense-Tracker/account"><MdAccountCircle/> Login/Register</Link></li>
+            {/* <li><Link to="/React-Expense-Tracker/account/details"><MdAccountCircle/> <GoChevronDown/></Link></li> */}
+            
+          {/* FIXME - Construction */}
+            <AccountDialogContainer> SECTION Trial Dialog BTN </AccountDialogContainer>
+          {/* FIXME End of Construction */}
+
+
           </ul>
         </div>
       </nav>
     </header>
   );
+}
 }
 
 ToolBar.propType={
