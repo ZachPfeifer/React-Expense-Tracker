@@ -1,3 +1,6 @@
+//NOTE Need to originize what is seen with Auth and what is not see with !Auth
+
+
 import React from 'react';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';

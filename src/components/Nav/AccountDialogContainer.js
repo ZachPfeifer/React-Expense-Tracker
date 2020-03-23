@@ -22,7 +22,9 @@ render(){
           <br/>
           <img src={UserIcon} alt="Proile Pic"/>
           <br/>
-          <li></li>
+          <li><b> Email:</b> user.email</li>
+          <li><b>Occupation:</b> user.occupation</li>
+          <li><b>Bio:</b> user.bio</li>
           <li><small className=" text-muted"> <Link to="/React-Expense-Tracker/account/details">More Account Details</Link></small></li>
         </div>
         </AccountDetails>
