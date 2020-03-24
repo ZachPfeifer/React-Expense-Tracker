@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalState'
 import { Transaction } from './Transaction'
 
-const TransactionList = () => {
+const TransactionList = (props) => {
   const { transactions, getTransactions } = useContext(GlobalContext)
 
   useEffect(() => {
