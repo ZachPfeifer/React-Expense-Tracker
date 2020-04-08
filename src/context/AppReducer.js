@@ -21,6 +21,16 @@ export default (state, action) => {
         ...state,
         error: action.payload
       }
+
+    case 'FILTER_TRANSACTIONS':
+      debugger
+      return {
+        ...state,
+        loading: false,
+        searchItems: action.payload = state.transactions.text
+        }
+
+
     default:
       return state;
   }

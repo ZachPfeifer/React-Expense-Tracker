@@ -6,7 +6,8 @@ import axios from 'axios';
 const initialState = {
   transactions: [],
   error: null,
-  loading: true
+  loading: true,
+  searchItems: []
 }
 
 // Create context
@@ -20,7 +21,6 @@ export const GlobalProvider = ({ children }) => {
   async function getTransactions() {
     try {
       const res = await axios.get('https://zachs-global-server.herokuapp.com/api/v1/transactions');
-
       // @ts-ignore
       dispatch({
         type: 'GET_TRANSACTIONS',
@@ -38,7 +38,6 @@ export const GlobalProvider = ({ children }) => {
   async function deleteTransaction(id) {
     try {
       await axios.delete(`https://zachs-global-server.herokuapp.com/api/v1/transactions/${id}`);
-
       // @ts-ignore
       dispatch({
         type: 'DELETE_TRANSACTION',
@@ -77,13 +76,37 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  return (<GlobalContext.Provider value={{
+
+
+
+
+
+  //SECTION Handle for search Input
+//  const handleInput = (e) => {
+//     e.preventDefault();
+//     initialState.searchItems = e.target.value
+//     console.log(initialState.searchItems);
+//   }
+const handleInput = (e) => {
+  e.preventDefault();
+  debugger
+    dispatch({
+      type: 'FILTER_TRANSACTIONS',
+      payload:  state.transactions.text = e.target.value,
+    })
+}
+
+  return (
+  <GlobalContext.Provider value={{
     transactions: state.transactions,
     error: state.error,
     loading: state.loading,
     getTransactions,
     deleteTransaction,
-    addTransaction
+    addTransaction,
+
+    searchItem: state.searchItem,
+    handleInput,
   }}>
     {children}
   </GlobalContext.Provider>);
